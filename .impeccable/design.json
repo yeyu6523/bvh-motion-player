@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T04:09:51.127Z",
+  "title": "Design System: BVH Motion Player",
+  "extensions": {
+    "colorMeta": {
+      "teal": {
+        "role": "primary",
+        "displayName": "Quiet teal"
+      },
+      "teal-hover": {
+        "role": "primary",
+        "displayName": "Deep teal hover"
+      },
+      "limb-right": {
+        "role": "secondary",
+        "displayName": "Right-side copper"
+      },
+      "limb-center": {
+        "role": "secondary",
+        "displayName": "Central slate-blue"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Warm paper"
+      },
+      "shell": {
+        "role": "neutral",
+        "displayName": "Shell linen"
+      },
+      "viewport-sage": {
+        "role": "neutral",
+        "displayName": "Viewport sage"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Green ink"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted sage ink"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Soft boundary"
+      },
+      "control-hover": {
+        "role": "neutral",
+        "displayName": "Control hover"
+      },
+      "metadata-line": {
+        "role": "neutral",
+        "displayName": "Metadata separator"
+      },
+      "error-paper": {
+        "role": "neutral",
+        "displayName": "Alert paper"
+      },
+      "error-border": {
+        "role": "secondary",
+        "displayName": "Alert border"
+      },
+      "error-ink": {
+        "role": "secondary",
+        "displayName": "Alert ink"
+      },
+      "drag-tint": {
+        "role": "neutral",
+        "displayName": "Translucent drop tint"
+      }
+    },
+    "typographyMeta": {
+      "title": {
+        "displayName": "Application Title",
+        "purpose": "BVH brand prefix; product-name suffix uses lighter weight."
+      },
+      "headline": {
+        "displayName": "Empty State Headline",
+        "purpose": "Centered invitation before loading a file."
+      },
+      "filename": {
+        "displayName": "Current Filename",
+        "purpose": "Wrapping file identifier in the inspector."
+      },
+      "section-label": {
+        "displayName": "Section Label",
+        "purpose": "Compact inspector headings."
+      },
+      "button-label": {
+        "displayName": "Button Label",
+        "purpose": "Primary and secondary action text."
+      },
+      "body": {
+        "displayName": "Control Body",
+        "purpose": "Form labels and metadata."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Timing and viewport annotation."
+      },
+      "hint": {
+        "displayName": "Hint",
+        "purpose": "Privacy and shortcut guidance."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "button-background",
+        "value": "background .15s",
+        "purpose": "The implemented button hover transition; no transform animation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-desktop",
+        "value": "1000px"
+      },
+      {
+        "name": "stacked-small-screen",
+        "value": "650px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary Button as shipped in the application shell or transport.",
+      "html": "<button class=\"ds-primary\">选择 BVH 文件</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line,#d6ddd5);border-radius:7px;padding:10px 14px;font-size:13px;font-weight:650;color:var(--ink,#213e3a);background:var(--paper,#fffef9);min-height:40px;transition:background .15s;cursor:pointer;font-family:'Manrope Variable','Microsoft YaHei',sans-serif;background:var(--teal,#176c5e);border-color:var(--teal,#176c5e);color:var(--paper,#fffef9);}.ds-primary:hover:not(:disabled){background:#105447;}.ds-primary:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}.ds-primary:disabled{opacity:.4;cursor:not-allowed}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary Button as shipped in the application shell or transport.",
+      "html": "<button class=\"ds-secondary\">载入步行示例</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line,#d6ddd5);border-radius:7px;padding:10px 14px;font-size:13px;font-weight:650;color:var(--ink,#213e3a);background:var(--paper,#fffef9);min-height:40px;transition:background .15s;cursor:pointer;font-family:'Manrope Variable','Microsoft YaHei',sans-serif;background:transparent;}.ds-secondary:hover{background:#e9eee5;}.ds-secondary:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}.ds-secondary:disabled{opacity:.4;cursor:not-allowed}"
+    },
+    {
+      "name": "Text Button",
+      "kind": "button",
+      "refersTo": "button-text",
+      "description": "Text Button as shipped in the application shell or transport.",
+      "html": "<button class=\"ds-text\">先试试内置示例</button>",
+      "css": ".ds-text{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line,#d6ddd5);border-radius:7px;padding:10px 14px;font-size:13px;font-weight:650;color:var(--ink,#213e3a);background:var(--paper,#fffef9);min-height:40px;transition:background .15s;cursor:pointer;font-family:'Manrope Variable','Microsoft YaHei',sans-serif;background:transparent;border:0;color:var(--teal,#176c5e);margin-top:7px;}.ds-text:hover{background:#e9eee5;}.ds-text:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}.ds-text:disabled{opacity:.4;cursor:not-allowed}"
+    },
+    {
+      "name": "Icon Transport Button",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Icon Transport Button as shipped in the application shell or transport.",
+      "html": "<button class=\"ds-icon\" aria-label=\"下一帧\"><svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M18 5v14M6 5l10 7-10 7Z\"/></svg></button>",
+      "css": ".ds-icon{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:1px solid var(--line,#d6ddd5);border-radius:7px;padding:10px 14px;font-size:13px;font-weight:650;color:var(--ink,#213e3a);background:var(--paper,#fffef9);min-height:40px;transition:background .15s;cursor:pointer;font-family:'Manrope Variable','Microsoft YaHei',sans-serif;padding:7px;width:35px;border-color:transparent;background:transparent;min-height:35px;}.ds-icon:hover{background:#e9eee5;}.ds-icon:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}.ds-icon:disabled{opacity:.4;cursor:not-allowed}.ds-icon svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}"
+    },
+    {
+      "name": "Speed Select",
+      "kind": "input",
+      "refersTo": "select",
+      "description": "Native select paired with a visible speed label.",
+      "html": "<label class=\"ds-speed\">播放速度<select class=\"ds-select\"><option>0.5×</option><option selected>1× 正常</option><option>2×</option></select></label>",
+      "css": ".ds-speed{display:flex;gap:12px;align-items:center;font-size:12px;color:var(--ink,#213e3a);font-family:'Manrope Variable','Microsoft YaHei',sans-serif;}.ds-select{background:var(--paper,#fffef9);border:1px solid var(--line,#d6ddd5);border-radius:5px;padding:7px;color:var(--ink,#213e3a);font:inherit;font-size:12px;min-width:95px;cursor:pointer}.ds-select:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}"
+    },
+    {
+      "name": "Frame Timeline",
+      "kind": "input",
+      "description": "Native range input and tabular timing labels; teal is the active form accent.",
+      "html": "<div class=\"ds-timeline\"><div class=\"ds-caption\"><span class=\"ds-frame\">帧 41 / 240</span><span>00:00.667 / 00:04.000</span></div><input class=\"ds-range\" type=\"range\" min=\"1\" max=\"240\" value=\"41\" aria-label=\"播放进度（帧）\"></div>",
+      "css": ".ds-timeline{color:var(--ink,#213e3a);font-family:'Manrope Variable','Microsoft YaHei',sans-serif;}.ds-caption{display:flex;align-items:center;justify-content:space-between;font-size:11px;font-variant-numeric:tabular-nums;font-weight:650}.ds-frame{color:var(--muted,#596d65)}.ds-range{width:100%;margin:15px 0 18px;accent-color:var(--teal,#176c5e);height:5px;cursor:pointer}.ds-range:focus-visible{outline:3px solid var(--focus,#176c5e);outline-offset:3px;}"
+    },
+    {
+      "name": "Viewport Status",
+      "kind": "custom",
+      "refersTo": "status",
+      "description": "Small non-interactive status label placed on the viewport.",
+      "html": "<span class=\"ds-status\" role=\"status\">已暂停</span>",
+      "css": ".ds-status{display:inline-block;background:var(--paper,#fffef9);padding:6px 10px;border:1px solid var(--line,#d6ddd5);border-radius:4px;font-size:11px;color:var(--muted,#596d65);font-family:'Manrope Variable','Microsoft YaHei',sans-serif;}"
+    },
+    {
+      "name": "Error Banner",
+      "kind": "custom",
+      "refersTo": "error-banner",
+      "description": "Viewport alert for file or parsing failures; content wraps rather than truncates.",
+      "html": "<div class=\"ds-error\" role=\"alert\">无法载入 BVH 文件。请检查文件内容后重试。</div>",
+      "css": ".ds-error{background:#fff0e8;border:1px solid #bc593d;color:#853d25;padding:13px;font-size:12px;line-height:1.6;overflow-wrap:anywhere;font-family:'Manrope Variable','Microsoft YaHei',sans-serif;}"
+    },
+    {
+      "name": "Skeleton Legend",
+      "kind": "custom",
+      "description": "Written left, right, and center labels paired with renderer-matched color dots.",
+      "html": "<div class=\"ds-legend\"><p><i class=\"ds-dot ds-left\"></i>左侧肢体<i class=\"ds-dot ds-right\"></i>右侧肢体</p><p><i class=\"ds-dot ds-center\"></i>躯干与其他关节</p></div>",
+      "css": ".ds-legend{font-family:'Manrope Variable','Microsoft YaHei',sans-serif;}.ds-legend p{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--muted,#596d65);margin:10px 0}.ds-dot{height:7px;width:7px;display:inline-block;border-radius:50%}.ds-left{background:var(--teal,#176c5e)}.ds-right{background:#b7542e;margin-left:8px}.ds-center{background:#3f596b}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Motion Workbench",
+    "overview": "A restrained, code-led desktop instrument for inspecting motion. Warm paper panels frame a pale sage three-dimensional stage, while dark green ink keeps file information and transport controls legible. The visual character is practical and calm rather than promotional.\n\nThe implemented world uses a conventional application shell, compact labeled controls, native form affordances, and a single teal action color. The rendered skeleton is the content: thin articulated lines, softly lit joint markers, and a receding ground grid provide depth without decorative UI effects.",
+    "keyCharacteristics": [
+      "Warm paper chrome and a sage three-dimensional stage.",
+      "Manrope Variable with Microsoft YaHei for Chinese text.",
+      "Teal actions and consistent anatomical color coding.",
+      "Flat, bordered controls with visible keyboard focus.",
+      "A desktop inspector, viewport, and lower transport rather than a card dashboard."
+    ],
+    "rules": [
+      {
+        "name": "The Anatomy Rule",
+        "body": "Reserve teal, copper, and slate-blue skeleton colors for left-side, right-side, and central or otherwise inherited joint groups respectively; keep the visible legend aligned with the renderer.",
+        "section": "colors"
+      },
+      {
+        "name": "The Stable Numbers Rule",
+        "body": "Use tabular numerals for changing metadata values and timeline captions so playback does not cause numeric jitter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Chrome Rule",
+        "body": "Separate application panels with fine rules and tonal surfaces, not UI shadows; leave three-dimensional lighting to the skeleton viewport.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** retain paper control surfaces, sage viewport tone, and dark green text.",
+      "**Do** keep primary actions teal and give keyboard-operable controls a visible focus outline.",
+      "**Do** pair skeleton color with the written left, right, and center legend.",
+      "**Do** preserve compact labels, aligned metadata values, and tabular timing numerals.",
+      "**Do** keep small-screen controls in normal flow and let the inspector scroll on desktop."
+    ],
+    "donts": [
+      "**Don't** turn this working tool into a marketing page or add decorative concept imagery.",
+      "**Don't** add floating card shadows, gradients, or translucent glass to the flat application chrome.",
+      "**Don't** treat the screenshot's teal viewport outline as a permanent border; it is keyboard focus.",
+      "**Don't** add unsupported components or treat incidental clipping, hover defects, or browser-native styling as new design rules."
+    ]
+  }
+}
+
