@@ -1,0 +1,9 @@
+node_modules/
+dist/
+release/
+output/
+*.log
+.impeccable/review/
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/config.local.json

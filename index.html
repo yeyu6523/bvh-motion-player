@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; worker-src 'self' blob:; object-src 'none'; base-uri 'self'">
+  <title>BVH Motion Player · 动捕播放器</title>
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 24 16 5l11 19M10 16h12M5 24h22"/><circle cx="16" cy="5" r="3"/><circle cx="5" cy="24" r="3"/><circle cx="27" cy="24" r="3"/></svg><h1>BVH <span>Motion Player</span></h1></div>
+    <span class="header-caption">动捕文件 · 骨架可视化</span>
+    <button id="open" class="primary"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2-3h7v5M3 7v13h16l3-11H8l-3 8"/></svg>打开 BVH 文件 <kbd>Ctrl O</kbd></button>
+    <input id="file-input" type="file" accept=".bvh" hidden>
+  </header>
+  <main>
+    <aside class="inspector" aria-label="文件与显示设置">
+      <section class="file-section"><h2>当前文件</h2><p id="filename" class="filename">尚未载入文件</p><p id="source" class="muted">选择本地文件，或载入自制示例。</p><button id="demo" class="secondary wide">载入步行示例</button></section>
+      <section><h2>运动数据</h2><dl class="metadata"><div><dt>有效关节</dt><dd id="joints">—</dd></div><div><dt>通道数量</dt><dd id="channels">—</dd></div><div><dt>总帧数</dt><dd id="frames">—</dd></div><div><dt>原始帧率</dt><dd id="fps">—</dd></div><div><dt>片段时长</dt><dd id="duration">—</dd></div></dl></section>
+      <section><h2>显示设置</h2><label class="check"><input id="grid" type="checkbox" checked>地面网格</label><label class="check"><input id="markers" type="checkbox" checked>关节标记</label><label class="check"><input id="follow" type="checkbox" checked>镜头跟随根节点</label><label class="select-label" for="up-axis">文件向上轴<select id="up-axis"><option value="Y">Y 轴（默认）</option><option value="Z">Z 轴</option><option value="X">X 轴</option></select></label><button id="reset-view" class="secondary wide">重置视角 <kbd>R</kbd></button></section>
+      <section class="legend"><h2>骨架标识</h2><p><i class="dot left"></i>左侧肢体<i class="dot right"></i>右侧肢体</p><p><i class="dot center"></i>躯干与其他关节</p></section>
+      <div class="privacy">离线运行 · 文件仅在本机处理</div>
+    </aside>
+    <section class="workspace" aria-label="三维骨架与播放控制">
+      <div id="viewport" class="viewport" tabindex="0" aria-label="三维骨架视图：左键旋转、右键平移、滚轮缩放">
+        <div class="viewport-top"><span class="view-label">透视视图</span><span id="status" role="status">准备就绪</span></div>
+        <div id="empty" class="empty"><h2>让骨架动起来</h2><p>拖入 .bvh 文件，查看每一帧动作</p><button id="empty-open" class="primary">选择 BVH 文件</button><button id="empty-demo" class="text-button">先试试内置示例</button></div>
+        <div id="error" class="error" role="alert" hidden></div>
+        <div class="viewport-bottom"><span>左键旋转 · 右键平移 · 滚轮缩放</span><span class="axis-key"><b>X</b><b>Y</b><b>Z</b></span></div>
+        <div id="drop-overlay" class="drop-overlay" hidden>松开以载入 BVH 文件</div>
+      </div>
+      <footer class="transport">
+        <div class="timeline-caption"><span id="frame-label">帧 — / —</span><span><output id="current-time">00:00.000</output><span class="muted"> / </span><span id="total-time">00:00.000</span></span></div>
+        <input id="timeline" type="range" min="0" max="1" value="0" step="1" aria-label="播放进度（帧）" disabled>
+        <div class="controls"><div class="play-controls"><button id="restart" class="icon-button" aria-label="回到首帧" title="回到首帧" disabled><svg viewBox="0 0 24 24"><path d="M5 5v14M19 5 8 12l11 7Z"/></svg></button><button id="previous" class="icon-button" aria-label="上一帧" title="上一帧（左箭头）" disabled><svg viewBox="0 0 24 24"><path d="M6 5v14M18 5 8 12l10 7Z"/></svg></button><button id="play" class="primary play-button" disabled><svg viewBox="0 0 24 24"><path id="play-icon" d="m8 5 11 7-11 7Z"/></svg><span>播放</span></button><button id="next" class="icon-button" aria-label="下一帧" title="下一帧（右箭头）" disabled><svg viewBox="0 0 24 24"><path d="M18 5v14M6 5l10 7-10 7Z"/></svg></button></div><label class="check loop"><input id="loop" type="checkbox" checked>循环播放</label><label class="speed-control" for="speed">播放速度<select id="speed"><option value="0.1">0.1×</option><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="0.75">0.75×</option><option value="1" selected>1× 正常</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="3">3×</option><option value="4">4×</option></select></label></div>
+        <p class="shortcut-hint"><kbd>Space</kbd> 播放 / 暂停 <span><kbd>←</kbd><kbd>→</kbd> 逐帧查看</span><span>按文件的 Frame Time 计时</span></p>
+      </footer>
+    </section>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

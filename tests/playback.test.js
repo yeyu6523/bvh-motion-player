@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { Playback } from '../src/playback.js';
+const clock = () => { const p = new Playback(); p.load({ duration: 2, frameTime: 0.1, frameCount: 20 }); return p; };
+test('play, pause, resume', () => { const p = clock(); p.play(); p.advance(0.5); assert.equal(p.time, 0.5); p.pause(); p.advance(9); assert.equal(p.time, 0.5); p.play(); p.advance(0.25); assert.equal(p.time, 0.75); });
+test('0.5x / 1x / 2x speed has exact time ratios', () => { for (const speed of [0.5, 1, 2]) { const p = clock(); p.setSpeed(speed); p.play(); p.advance(0.4); assert.equal(p.time, 0.4 * speed); } });
+test('clock is independent of render frequency', () => { const a = clock(); const b = clock(); a.play(); b.play(); for (let i = 0; i < 60; i++) a.advance(1 / 60); for (let i = 0; i < 144; i++) b.advance(1 / 144); assert.ok(Math.abs(a.time - b.time) < 1e-12); });
+test('loop and non-loop end behavior', () => { const p = clock(); p.play(); p.advance(2.3); assert.ok(Math.abs(p.time - 0.3) < 1e-12); p.loop = false; p.advance(3); assert.equal(p.frame, 19); assert.equal(p.playing, false); p.play(); assert.equal(p.time, 0); });
+test('seeking and frame stepping are clamped', () => { const p = clock(); p.seek(100); assert.equal(p.frame, 19); p.step(1); assert.equal(p.frame, 19); p.seek(-1); p.step(-1); assert.equal(p.frame, 0); p.step(1); assert.equal(p.frame, 1); });
+test('single-frame clips remain valid', () => { const p = clock(); p.load({ duration: 0.1, frameTime: 0.1, frameCount: 1 }); p.play(); p.advance(0.05); assert.equal(p.frame, 0); assert.deepEqual(p.sample(), { first: 0, second: 0, alpha: 0.5 }); });
+test('reject invalid speed and ignore invalid time inputs', () => { const p = clock(); for (const x of [NaN, Infinity, -1, 0, 5]) assert.throws(() => p.setSpeed(x)); p.play(); p.advance(NaN); p.advance(-1); p.seek(NaN); assert.equal(p.time, 0); });
+test('seek has no floating-point off-by-one at all 60 fps frames', () => { const p = clock(); p.load({duration:4,frameTime:1/60,frameCount:240}); for(let i=0;i<240;i++){p.seek(i/60);assert.equal(p.frame,i);} });

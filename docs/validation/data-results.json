@@ -1,0 +1,104 @@
+{
+  "count": 11,
+  "results": [
+    {
+      "name": "008b.bvh",
+      "sha256": "d3421fe73b9ba11a7f4aa2e2fb69e940019ed515ea4dcb7eb230b415e2456ccc",
+      "frames": 513,
+      "channels": 57,
+      "joints": 18,
+      "duration": 8.550171,
+      "maxDifference": 0.000010591530655619389
+    },
+    {
+      "name": "012.bvh",
+      "sha256": "c90169df69e986eaf0feeee1aae2663ba4bc53f0884cfcd5f77fed531a1db6c8",
+      "frames": 886,
+      "channels": 57,
+      "joints": 18,
+      "duration": 14.766962000000001,
+      "maxDifference": 0.000012445631255715045
+    },
+    {
+      "name": "035.bvh",
+      "sha256": "1f3316ff03c068d3503b7de28c1a489cfab5a2e0995b933d49e1099af1336cbb",
+      "frames": 316,
+      "channels": 57,
+      "joints": 18,
+      "duration": 5.2667720000000005,
+      "maxDifference": 0.000011329166444190073
+    },
+    {
+      "name": "041.bvh",
+      "sha256": "49433765f94862b1ecdf70f8452db42d293dcc3f96d16a5753e7ac5955ef847f",
+      "frames": 312,
+      "channels": 57,
+      "joints": 18,
+      "duration": 5.2001040000000005,
+      "maxDifference": 0.0000011569598581845668
+    },
+    {
+      "name": "057.bvh",
+      "sha256": "5a2880da5ac84ed594a2366422163b4c3bb3a923e61359ed9f973f493c7bfe36",
+      "frames": 385,
+      "channels": 57,
+      "joints": 18,
+      "duration": 6.4167950000000005,
+      "maxDifference": 0.0000030644505884168024
+    },
+    {
+      "name": "073.bvh",
+      "sha256": "92915cebc3b6189eb207feaaa4edd1e0e3b2de99d304e28a8aa8e2ee245525fe",
+      "frames": 1761,
+      "channels": 57,
+      "joints": 18,
+      "duration": 29.350587,
+      "maxDifference": 0.000002727657695921872
+    },
+    {
+      "name": "076.bvh",
+      "sha256": "1799a672d88a17343c7f1f895559860384914526fe3ae593021c9cfef281f720",
+      "frames": 2179,
+      "channels": 57,
+      "joints": 18,
+      "duration": 36.317393,
+      "maxDifference": 0.00003476595790259324
+    },
+    {
+      "name": "KICK R.bvh",
+      "sha256": "ca0d7dd82625e626d46cbe6073e646f020bf0c09275863b5236a588c017c1b50",
+      "frames": 514,
+      "channels": 57,
+      "joints": 18,
+      "duration": 8.566838,
+      "maxDifference": 0.000004474194857604425
+    },
+    {
+      "name": "walk1.bvh",
+      "sha256": "7eb866b51a1892efdf2f0c82c0e048ac3973075a1f41bb7e50c9bf70d2c572e8",
+      "frames": 8531,
+      "channels": 84,
+      "joints": 27,
+      "duration": 71.088823,
+      "maxDifference": 0.00009484523866765163
+    },
+    {
+      "name": "walk2.bvh",
+      "sha256": "f956eed7a2a86a9b216af48ce18b6cbf2ee3509971f6a2186ffccfbc33faa1a4",
+      "frames": 1631,
+      "channels": 84,
+      "joints": 27,
+      "duration": 13.591123,
+      "maxDifference": 0.00001984867930103148
+    },
+    {
+      "name": "walk3.bvh",
+      "sha256": "349d66f371c5a9ed47a0e53b7a9edd61c4b8e51917804c34e40b1d32d9c96a41",
+      "frames": 1383,
+      "channels": 84,
+      "joints": 27,
+      "duration": 11.524539,
+      "maxDifference": 0.00004003338081859146
+    }
+  ]
+}
